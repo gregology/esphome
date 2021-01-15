@@ -1,0 +1,54 @@
+esphome:
+  name: studio
+  platform: ESP32
+  board: esp32cam
+
+<<: !include wifi.yaml
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+uart:
+  rx_pin: GPIO5
+  tx_pin: GPIO18
+  baud_rate: 9600
+
+sensor:
+  - platform: mhz19
+    co2:
+      name: "MH-Z19 CO2 Value"
+    temperature:
+      name: "MH-Z19 Temperature"
+    update_interval: 60s
+    automatic_baseline_calibration: true
+
+switch:
+  - platform: gpio
+    pin: GPIO25
+    id: standing
+  - platform: template
+    name: "Raise standing desk"
+    icon: "mdi:human"
+    turn_on_action:
+    - switch.turn_on: standing
+    - delay: 10000ms
+    - switch.turn_off: standing
+  # - platform: gpio
+  #   pin: GPIO26
+  #   id: sitting
+  # - platform: template
+  #   name: "Lower standing desk"
+  #   icon: "mdi:table-chair"
+  #   turn_on_action:
+  #   - switch.turn_on: sitting
+  #   - delay: 10000ms
+  #   - switch.turn_off: sitting
+
+<<: !include mqtt.yaml

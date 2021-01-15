@@ -1,0 +1,36 @@
+esphome:
+  name: basement
+  platform: ESP8266
+  board: nodemcuv2
+
+<<: !include wifi.yaml
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+# Example configuration entry
+dallas:
+  - pin: GPIO5
+
+# Individual sensors
+sensor:
+  - platform: dallas
+    address: 0x9B0300A27968A928
+    name: "Cold Room Temperature"
+  - platform: dht
+    pin: D2
+    model: AM2302
+    temperature:
+      name: "Basement Temperature"
+    humidity:
+      name: "Basement Humidity"
+    update_interval: 60s
+
+<<: !include mqtt.yaml

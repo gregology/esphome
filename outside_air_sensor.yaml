@@ -1,0 +1,37 @@
+esphome:
+  name: outside
+  platform: ESP8266
+  board: nodemcuv2
+
+<<: !include wifi.yaml
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+uart:
+  rx_pin: D2
+  tx_pin: D3
+  baud_rate: 9600
+
+dallas:
+  - pin: D1
+
+sensor:
+  - platform: dallas
+    address: 0x3F0300A279C82528
+    name: "Outside Temperature"
+  - platform: sds011
+    pm_2_5:
+      name: "Outside Particulate Matter <2.5µm Concentration"
+    pm_10_0:
+      name: "Outside Particulate Matter <10.0µm Concentration"
+    update_interval: 5min
+
+<<: !include mqtt.yaml
