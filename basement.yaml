@@ -1,7 +1,7 @@
 esphome:
   name: basement
-  platform: ESP8266
-  board: nodemcuv2
+  platform: ESP32
+  board: nodemcu-32s
 
 <<: !include wifi.yaml
 
@@ -17,7 +17,7 @@ ota:
 
 # Example configuration entry
 dallas:
-  - pin: GPIO5
+  - pin: 22
 
 # Individual sensors
 sensor:
@@ -25,7 +25,7 @@ sensor:
     address: 0x9B0300A27968A928
     name: "Cold Room Temperature"
   - platform: dht
-    pin: D2
+    pin: 23
     model: AM2302
     temperature:
       name: "Basement Temperature"
