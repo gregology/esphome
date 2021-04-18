@@ -1,0 +1,94 @@
+esphome:
+  name: studio_book_shelf_right_leds
+  platform: ESP32
+  board: nodemcu-32s
+
+<<: !include wifi.yaml
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+# Example configuration entry
+light:
+  - platform: rgb
+    name: "LED channel 1"
+    blue: blue_1
+    red: red_1
+    green: green_1
+  - platform: rgb
+    name: "LED channel 2"
+    blue: blue_2
+    red: red_2
+    green: green_2
+  - platform: rgb
+    name: "LED channel 3"
+    blue: blue_3
+    red: red_3
+    green: green_3
+  - platform: rgb
+    name: "LED channel 4"
+    blue: blue_4
+    red: red_4
+    green: green_4
+  - platform: rgb
+    name: "LED channel 5"
+    blue: blue_5
+    red: red_5
+    green: green_5
+
+# Example output entry
+output:
+  - platform: ledc
+    id: blue_1
+    pin: 5
+  - platform: ledc
+    id: red_1
+    pin: 18
+  - platform: ledc
+    id: green_1
+    pin: 19
+  - platform: ledc
+    id: blue_2
+    pin: 4
+  - platform: ledc
+    id: red_2
+    pin: 16
+  - platform: ledc
+    id: green_2
+    pin: 17
+  - platform: ledc
+    id: blue_3
+    pin: 15
+  - platform: ledc
+    id: red_3
+    pin: 2
+  - platform: ledc
+    id: green_3
+    pin: 0
+  - platform: ledc
+    id: blue_4
+    pin: 27
+  - platform: ledc
+    id: red_4
+    pin: 14
+  - platform: ledc
+    id: green_4
+    pin: 12
+  - platform: ledc
+    id: blue_5
+    pin: 33
+  - platform: ledc
+    id: red_5
+    pin: 25
+  - platform: ledc
+    id: green_5
+    pin: 26
+
+<<: !include mqtt.yaml

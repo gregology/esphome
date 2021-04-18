@@ -15,19 +15,19 @@ api:
 
 ota:
 
-uart:
-  rx_pin: GPIO5
-  tx_pin: GPIO18
-  baud_rate: 9600
+# uart:
+#   rx_pin: GPIO5
+#   tx_pin: GPIO18
+#   baud_rate: 9600
 
-sensor:
-  - platform: mhz19
-    co2:
-      name: "MH-Z19 CO2 Value"
-    temperature:
-      name: "MH-Z19 Temperature"
-    update_interval: 60s
-    automatic_baseline_calibration: true
+# sensor:
+#   - platform: mhz19
+#     co2:
+#       name: "MH-Z19 CO2 Value"
+#     temperature:
+#       name: "MH-Z19 Temperature"
+#     update_interval: 60s
+#     automatic_baseline_calibration: true
 
 switch:
   - platform: gpio
@@ -38,17 +38,17 @@ switch:
     icon: "mdi:human"
     turn_on_action:
     - switch.turn_on: standing
-    - delay: 10000ms
+    - delay: 12000ms
     - switch.turn_off: standing
-  # - platform: gpio
-  #   pin: GPIO26
-  #   id: sitting
-  # - platform: template
-  #   name: "Lower standing desk"
-  #   icon: "mdi:table-chair"
-  #   turn_on_action:
-  #   - switch.turn_on: sitting
-  #   - delay: 10000ms
-  #   - switch.turn_off: sitting
+  - platform: gpio
+    pin: GPIO26
+    id: sitting
+  - platform: template
+    name: "Lower standing desk"
+    icon: "mdi:table-chair"
+    turn_on_action:
+    - switch.turn_on: sitting
+    - delay: 12000ms
+    - switch.turn_off: sitting
 
 <<: !include mqtt.yaml

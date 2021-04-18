@@ -33,5 +33,11 @@ sensor:
     pm_10_0:
       name: "Outside Particulate Matter <10.0µm Concentration"
     update_interval: 5min
+  - platform: pulse_counter
+    pin: D5
+    name: "Geiger Counter"
+    update_interval: 60s
+    accuracy_decimals: 0
+    icon: "mdi:radioactive"
 
 <<: !include mqtt.yaml
