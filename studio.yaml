@@ -51,4 +51,14 @@ switch:
     - delay: 12000ms
     - switch.turn_off: sitting
 
+sensor:
+  - platform: dht
+    model: DHT22
+    pin: GPIO14
+    temperature:
+      name: "Studio temperature"
+    humidity:
+      name: "Studio humidity"
+    update_interval: 60s
+
 <<: !include mqtt.yaml
