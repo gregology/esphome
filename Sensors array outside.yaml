@@ -1,5 +1,5 @@
 esphome:
-  name: outside
+  name: sensors_array_outside
   platform: ESP8266
   board: nodemcuv2
 

@@ -1,5 +1,5 @@
 esphome:
-  name: studio
+  name: switch_standing_desk_studio
   platform: ESP32
   board: esp32cam
 

@@ -1,5 +1,5 @@
 esphome:
-  name: studio_book_shelf_left_leds
+  name: light_right_bookshelf_studio
   platform: ESP32
   board: nodemcu-32s
 

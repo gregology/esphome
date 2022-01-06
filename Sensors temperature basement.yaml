@@ -1,5 +1,5 @@
 esphome:
-  name: basement
+  name: sensors_temperature_basement
   platform: ESP32
   board: nodemcu-32s
 
