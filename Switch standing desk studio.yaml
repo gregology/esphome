@@ -15,20 +15,6 @@ api:
 
 ota:
 
-# uart:
-#   rx_pin: GPIO5
-#   tx_pin: GPIO18
-#   baud_rate: 9600
-
-# sensor:
-#   - platform: mhz19
-#     co2:
-#       name: "MH-Z19 CO2 Value"
-#     temperature:
-#       name: "MH-Z19 Temperature"
-#     update_interval: 60s
-#     automatic_baseline_calibration: true
-
 switch:
   - platform: gpio
     pin: GPIO25
@@ -57,8 +43,19 @@ sensor:
     pin: GPIO14
     temperature:
       name: "Studio temperature"
+      filters:
+        - median:
+            window_size: 5
+            send_every: 5
+            send_first_at: 5
     humidity:
       name: "Studio humidity"
+      filters:
+        - median:
+            window_size: 5
+            send_every: 5
+            send_first_at: 5
     update_interval: 60s
+
 
 <<: !include mqtt.yaml

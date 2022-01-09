@@ -29,8 +29,18 @@ sensor:
     model: AM2302
     temperature:
       name: "Basement Temperature"
+      filters:
+        - median:
+            window_size: 5
+            send_every: 5
+            send_first_at: 5
     humidity:
       name: "Basement Humidity"
+      filters:
+        - median:
+            window_size: 5
+            send_every: 5
+            send_first_at: 5
     update_interval: 60s
 
 <<: !include mqtt.yaml

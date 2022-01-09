@@ -18,27 +18,27 @@ ota:
 # Example configuration entry
 light:
   - platform: rgb
-    name: "LED channel 1"
+    name: "Studio left bookshelf LED channel 1"
     blue: blue_1
     red: red_1
     green: green_1
   - platform: rgb
-    name: "LED channel 2"
+    name: "Studio left bookshelf LED channel 2"
     blue: blue_2
     red: red_2
     green: green_2
   - platform: rgb
-    name: "LED channel 3"
+    name: "Studio left bookshelf LED channel 3"
     blue: blue_3
     red: red_3
     green: green_3
   - platform: rgb
-    name: "LED channel 4"
+    name: "Studio left bookshelf LED channel 4"
     blue: blue_4
     red: red_4
     green: green_4
   - platform: rgb
-    name: "LED channel 5"
+    name: "Studio left bookshelf LED channel 5"
     blue: blue_5
     red: red_5
     green: green_5
